@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenvolvedor M3</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <!-- Headers -->
+
+    <header class="menu-principal">
+        <main>
+            <div class="menu-principal">
+                <div class="logo">
+                    <img src=".\img\logo-m3.png" alt="">
+                </div>
+
+                <div class="bag">
+                    <img src="./img/bag.png" alt="">
+                </div>
+            </div>
+        </main>
+    </header>
+
+    <main class="col-100">
+        <div class="header2">
+            <div class="menu">
+                <li>Blusas</li>
+                <div class="ordenacao">
+                    <select name="Ordenar" id="ordenar">
+                        <option value="default" disabled selected hidden>Ordenar Por:</option>
+                        <option value="mais-recentes">Mais Recentes</option>
+                        <option value="menor-preço">Menor Preço</option>
+                        <option value="maior-preço">Maior Preço</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FILTRO -->
+
+    <div class="container">
+        <div class="container-conteudo">
+            <div class="coluna-filtro">
+                <ul class="coluna-filtro-ul">
+                    <li id="lista-cores" class="coluna-filtro-cores">
+                        <div class="name">
+                            CORES
+                        </div>
+                    </li>
+
+                    <li class="link-cores">
+                        <a href="index.html">Ver todas as cores</a>
+                    </li>
+
+                    <li id="filtro-tamanho" class="coluna-filtro-tamanho">
+                        <div class="name">
+                            TAMANHOS
+                        </div>
+                        <ul id="tamanhos" class="filtro-coluna-tamanho">
+
+                        </ul>
+                    </li>
+                    <li class="coluna-filtro-preco">
+                        <div class="name">
+                            FAIXA DE PREÇOS
+                        </div>
+                        <ul class="filtro-coluna-precos">
+                            <li class="filtro-preco">
+                                <input type="checkbox" id="0a50" name="0a50" class="checkbox-style">
+                                <label for="0a50">de R$0 até R$50</label>
+                            </li>
+                            <li class="filtro-preco">
+                                <input type="checkbox" id="51a150" name="51a150" class="checkbox-style">
+                                <label for="51a150">de R$51 até R$150</label>
+                            </li>
+                            <li class="filtro-preco">
+                                <input type="checkbox" id="151a300" name="151a300" class="checkbox-style">
+                                <label for="151a300">de R$151 até R$300</label>
+                            </li>
+                            <li class="filtro-preco">
+                                <input type="checkbox" id="301a500" name="301a500" class="checkbox-style">
+                                <label for="301a500">de R$301 até R$500</label>
+                            </li>
+                            <li class="filtro-preco">
+                                <input type="checkbox" id="maiorque1" name="maiorque1" class="checkbox-style">
+                                <label for="maiorque1">A partir de R$1</label>
+                            </li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
+            <!-- PRODUTOS -->
+
+            <div id="produtos" class="produtos-layout">
+                <ul id="list-produtos-layout" class="produtos-layout-ul">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer><p>Agência M3 - Agência de Performance Digital</p></footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src=".\js\interacao.js"></script>
+</body>
+</html>
