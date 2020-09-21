@@ -61,6 +61,12 @@ carregarProdutos(produtos);
 $("#ordenar").change(function () {
     const valorOrdenar = $(this).val();
 
+    $("#list-produtos-layout li").detach();
+    
+    if(produtosFilter.length > 0){
+        produtos = produtosFilter[0];
+    }
+
     if (valorOrdenar === "mais-recentes") {
         carregarProdutos(produtos.sort(function (a, b) {
             return (a.data > b.data) ? 1 : (a.data < b.data) ? -1 : 0;
@@ -110,41 +116,46 @@ carregarCoresUnicas();
 /*/Fim Carregar cores do filtro de cores/*/
 
 /*/ filtrar produtos por cores/*/
+let produtosFilter = [];
 
 $('.checkbox-style').click(function () {
+
     if ($('.checkbox-style').is(':checked') && (attrFiltro.indexOf(this.id) === -1)) {
         $("#list-produtos-layout li").detach();
         attrFiltro.push(this.id);
+               
         attrFiltro.forEach(atributo => {
-            if (atributo === '0a50') {
-                carregarProdutos(produtos.filter(function (produto) {
+            if (atributo === "0a50") {
+                produtosFilter.push(produtos.filter(function (produto) {
                     return produto.preco < 50;
                 }));
             }
             if (atributo === "51a150") {
-                carregarProdutos(produtos.filter(function (produto) {
+                produtosFilter.push(produtos.filter(function (produto) {
                     return produto.preco > 50 && produto.preco < 150;
                 }));
             }
             if (atributo === "151a300") {
-                carregarProdutos(produtos.filter(function (produto) {
+                produtosFilter.push(produtos.filter(function (produto) {
                     return produto.preco > 150 && produto.preco < 300;
                 }));
             }
             if (atributo === "301a500") {
-                carregarProdutos(produtos.filter(function (produto) {
+                produtosFilter.push(produtos.filter(function (produto) {
                     return produto.preco > 300 && produto.preco < 500;
                 }));
             }
             if (atributo === "maiorque1") {
-                carregarProdutos(produtos.filter(function (produto) {
+                produtosFilter.push(produtos.filter(function (produto) {
                     return produto.preco > 1;
                 }));
             }
-            carregarProdutos(produtos.filter(function (produto) {
+            produtosFilter.push(produtos.filter(function (produto) {
                 return produto.cor === atributo
             }));
+            carregarProdutos(produtosFilter)
         });
+        
     } else {
         $("#list-produtos-layout li").detach();
         attrFiltro.splice(attrFiltro.indexOf(this.id), 1);
